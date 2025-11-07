@@ -2,6 +2,7 @@ import { getUsers } from "./controllers/readUsers";
 import { createUser } from "./controllers/createUser";
 import { IUser } from "./interfaces/interfaces";
 import http from "node:http";
+import { updateUser } from "controllers/updateUser";
 // import process from "node:process";
 // import { users } from 'dataBase/dataBase';
 
@@ -21,6 +22,9 @@ const server = http.createServer(async (req, res) => {
   }
   if (method === "GET") {
     await getUsers(req, res);
+  }
+  if (method === "PUT") {
+    await updateUser(req, res);
   }
   // req
   //   .on("error", (error) => {

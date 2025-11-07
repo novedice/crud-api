@@ -15,6 +15,7 @@ export const getUsers = async (
       response.writeHead(200, { "Content-Type": "application/json" });
       response.end(JSON.stringify(users));
       console.log("users in reader users:", users);
+      return;
     } else if (urlParts.length === 3) {
       const userID = urlParts[2];
       console.log("id: ", userID);
