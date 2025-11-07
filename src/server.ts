@@ -1,5 +1,6 @@
 import { IUser } from "interfaces/interfaces";
 import http from "node:http";
+// import process from "node:process";
 // import { users } from 'dataBase/dataBase';
 
 const users: IUser[] = [];
@@ -27,5 +28,5 @@ const server = http.createServer((req, res) => {
   res.end(JSON.stringify(bodyResponse));
 });
 server.listen(PORT, () => {
-  console.log(`server is listening on ${PORT}`);
+  console.log(`server is listening on http://localhost:${PORT}`);
 });
