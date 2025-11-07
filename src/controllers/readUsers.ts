@@ -1,6 +1,36 @@
 import { IncomingMessage, ServerResponse } from "node:http";
+import { users } from "../server";
+import { validate } from "uuid";
 
-export const getUser = async (
-  request: IncomingMessage,
+export const getUsers = async (
+  req: IncomingMessage,
   response: ServerResponse,
-) => {};
+) => {
+  const { url } = req;
+  if (url) {
+    const urlParts = url.split("/").filter((part) => part !== "");
+    console.log("urlparts:", urlParts);
+
+    if (urlParts.length === 2) {
+      response.writeHead(200, { "Content-Type": "application/json" });
+      response.end(JSON.stringify(users));
+      console.log("users in reader users:", users);
+    } else if (urlParts.length === 3) {
+      const userID = urlParts[2];
+      console.log("id: ", userID);
+      const thisUser = users.find((user) => user.id === userID);
+      if (!validate(userID)) {
+        response.writeHead(400, { "Content-Type": "application/json" });
+        response.end(JSON.stringify("Invalid userID"));
+        return;
+      }
+      if (!thisUser) {
+        response.writeHead(404, { "Content-Type": "application/json" });
+        response.end(JSON.stringify(`User with id ${userID} not found`));
+        return;
+      }
+      response.writeHead(200, { "Content-Type": "application/json" });
+      response.end(JSON.stringify(thisUser));
+    }
+  }
+};
