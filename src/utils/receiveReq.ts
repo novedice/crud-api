@@ -12,5 +12,6 @@ export const receiveRequest = (req: IncomingMessage): Promise<string> => {
     req.on("error", (error) => {
       reject(error);
     });
+    console.log("body in receiveMes", body);
   });
 };
