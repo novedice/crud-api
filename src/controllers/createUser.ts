@@ -9,7 +9,6 @@ export const createUser = async (
   response: ServerResponse,
 ) => {
   const mes = await reqBodyMes(request);
-  console.log("mesmes", mes);
   if (mes && mes.username && mes.age && mes.hobbies) {
     const userID = v4();
     const newUser: IUser = {
@@ -19,7 +18,7 @@ export const createUser = async (
       hobbies: mes.hobbies,
     };
     users.push(newUser);
-    response.writeHead(200, { "Content-Type": "application/json" });
+    response.writeHead(201, { "Content-Type": "application/json" });
     response.end(JSON.stringify(newUser));
   } else {
     response.writeHead(400, { "Content-Type": "application/json" });

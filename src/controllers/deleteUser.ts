@@ -12,20 +12,19 @@ export const deleteUser = async (
     if (urlParts.length === 3) {
       const userID = urlParts[2];
       const thisIndex = users.findIndex((item) => item.id === userID);
-      const thisUser = users[thisIndex];
       if (!validate(userID)) {
         response.writeHead(400, { "Content-Type": "application/json" });
         response.end(JSON.stringify("Invalid userID"));
         return;
       }
-      if (!thisUser) {
+      if (thisIndex === -1) {
         response.writeHead(404, { "Content-Type": "application/json" });
         response.end(JSON.stringify(`User with id ${userID} not found`));
         return;
       }
       users.splice(thisIndex, 1);
-      response.writeHead(200, { "Content-Type": "application/json" });
-      response.end(JSON.stringify(thisUser));
+      response.writeHead(204);
+      response.end();
     }
   }
 };
