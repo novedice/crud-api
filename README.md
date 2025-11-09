@@ -1,4 +1,4 @@
-# crud-api
+## CRUD-API
 ***Simple CRUD API***  
 
 This project implements a simple CRUD API using Node.js and TypeScript, with an in-memory database underneath.
@@ -6,24 +6,33 @@ This project implements a simple CRUD API using Node.js and TypeScript, with an 
 
 *Installation*  
 1. Clone the repository  
-git clone https://github.com/yourusername/crud-api.git  
-cd crud-api  
+*git clone https://github.com/yourusername/crud-api.git*  
+*cd crud-api*  
 
 2. Install dependencies  
-npm install  
+*npm install*  
 
 3. Create environment file  
-cp .env.example .env  
+*cp .env.example .env*  
 
 *Available Scripts:*  
  - Developer mode:  
 
-Run the app using:
-ts-node-dev --env-file=.env --respawn --transpile-only src/server.ts  
+Run the app using:  
+*npm run dev*  
 or  
-npm run dev
+*ts-node-dev --env-file=.env src/server.ts*  
 
 
+- Production mode:
+  
+First use this command to create a production build in dist folder:  
+*npm run build*  
+Then to start application in production mode run this command:  
+*npm run start* 
+
+
+  
 **Endpoints**
 GET /api/users  
 Returns all users.  
