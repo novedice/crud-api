@@ -18,10 +18,17 @@ cp .env.example .env
 *Available Scripts:*  
  - Developer mode:  
 
-Run the app using:
-ts-node-dev --env-file=.env --respawn --transpile-only src/server.ts  
+Run the app using:  
+npm run dev  
 or  
-npm run dev
+ts-node-dev --env-file=.env src/server.ts   
+  
+  
+ - Production mode:  
+ First use this command to create a production build in dist folder:  
+ npm run build  
+ then to start application in production mode run this command:
+ npm run start  
 
 
 **Endpoints**
