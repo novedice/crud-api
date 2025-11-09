@@ -34,29 +34,29 @@ GET /api/users/{userId}
 Returns user by ID.  
 Response:  
 200 OK → User found  
-400 Bad Request → Invalid UUID  
+400 Bad Request → Invalid userID  
 404 Not Found → User not found  
 
 POST /api/users  
 Creates a new user.  
 Request body (JSON):  
 {  
-  "username": "username",  
+  "username": string,  
   "age": number,  
   "hobbies": []  
 }  
 Response:  
 201 Created → User created  
-400 Bad Request → Missing required fields  
+400 Bad Request → Invalid data 
 
 PUT /api/users/{userId}  
 Updates an existing user.  
 Request body (JSON):  
 
 {  
-  "username": "username",  
-  "age": 15 ,  
-  "hobbies": ["reading"]  
+  "username": string,  
+  "age": number ,  
+  "hobbies": []  
 }  
 Response:  
 200 OK → Updated user  
