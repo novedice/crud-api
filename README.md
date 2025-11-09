@@ -6,7 +6,7 @@ This project implements a simple CRUD API using Node.js and TypeScript, with an 
 
 *Installation*  
 1. Clone the repository  
-*git clone https://github.com/yourusername/crud-api.git*  
+git clone https://github.com/novedice/crud-api.git  
 *cd crud-api*  
 
 2. Install dependencies  
@@ -26,10 +26,7 @@ or
 
 - Production mode:
   
-First use this command to create a production build in dist folder:  
-*npm run build*  
-Then to start application in production mode run this command:  
-*npm run start* 
+*npm run prod*
 
 
   
